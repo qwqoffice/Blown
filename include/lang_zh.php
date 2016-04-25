@@ -1,0 +1,15 @@
+<?php
+	//语言定义
+	$_LANG["Comment"]="发表评论";
+	$_LANG["Download"]="下载附件";
+	$_LANG["Manage"]="管理后台";
+	$_LANG["Search"]="搜索主题";
+	$_LANG["SendMessage"]="发送短消息";
+	$_LANG["VisitUserHome"]="查看用户动态";
+	$_LANG["Register"]="注册帐号";
+	$_LANG["NoValidateCode"]="免验证码";
+	$_LANG["NoPend"]="评论免审核";
+	$_LANG["Product"]="作品";
+	$_LANG["Original"]="原创";
+	$_LANG["Repaint"]="转载";
+?>

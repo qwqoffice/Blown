@@ -1,0 +1,345 @@
+@charset "utf-8";
+body, html{
+	height:100%;
+}
+body {
+	font-family:Microsoft YaHei,Tahoma,Helvetica,'SimSun',sans-serif;
+	background-color:rgb(254,254,254);
+	overflow-y:scroll;
+	margin: 0px;
+	padding: 0px;
+}
+.bolder{
+	font-weight:bolder;
+}
+.italic{
+	font-style:italic;
+}
+.underline{
+	text-decoration:underline;
+}
+a,img{
+	border:none;
+}
+a {
+	font-family: Microsoft YaHei,Tahoma,Helvetica,'SimSun',sans-serif;
+	text-decoration:none;
+	color:#333;
+}
+a:hover {
+	text-decoration:underline;
+}
+span{
+	font-family:"微软雅黑";
+}
+#login_border {
+	width:260px;
+	margin:auto;
+	border-radius:5px 5px 5px 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	padding-right:20px;
+	margin-top:80px;
+	border:thin solid #CCC;
+	transition: all ease-in-out 0.4s;
+}
+#login_border:hover {
+	border-color: #999;
+}
+#header {
+	background-color: #EEE;
+	width: 100%;
+	height:50px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-bottom:1px solid #CCC;
+}
+#header .title {
+	float:left;
+	padding-left:15px;
+	font-family:"微软雅黑";
+	font-size:24px;
+	font-weight:bolder;
+	line-height:50px;
+	display:block;
+	height:50px;
+	color:#444;
+}
+#header .greeting {
+	float: right;
+	font-size: 14px;
+	font-weight: bolder;
+	line-height: 50px;
+	display: block;
+	height: 50px;
+	color: #444;
+	margin-right:10px;
+}
+#header .home {
+	float:right;
+	font-size:14px;
+	line-height:50px;
+	display:block;
+	height:50px;
+	color:#444;
+	padding-left:5px;
+	padding-right:5px;
+	margin-right:10px;
+}
+#menu {
+	height: 100%;
+	width: 170px;
+	background-color:#EEE;
+}
+#menu ul {
+	padding:0px;
+	margin:0px;
+	padding-top:25px;
+	display:block;
+	list-style-type:none;
+}
+#menu ul img {
+	display:block;
+	float:left;
+	margin-right:5px;
+}
+#menu ul li {
+	position:relative;
+	display:block;
+	line-height:20px;
+}
+#menu ul a,#menu ul a:visited{
+	color:#333;
+	padding-bottom:6px;
+	padding-top:6px;
+	padding-left:35px;
+	display:block;
+	line-height:20px;
+	text-decoration:none;
+	font-family:"微软雅黑";
+	font-size:14px;
+	transition:background-color ease-in-out 0.2s;
+}
+#menu ul a:hover, #menu ul a.cur{
+	background-color:#FAFAFA;
+}
+#menu ul a.cur li:after{
+	position:absolute;
+	opacity:0.8;
+	top:2px;
+	right:2px;
+	content:url(../images/triangle.png);
+}
+#menu .copyright {
+	width:100%;
+	font-size:12px;
+	text-align:center;
+	display:block;
+	position:absolute;
+	bottom:10px;
+	left:0px;
+}
+#content {
+	background:#FAFAFA;
+	padding-bottom:20px;
+	width: 100%;
+	height: 100%;
+}
+#message {
+	width:600px;
+	margin:auto;
+	margin-top:50px;
+	border:solid 4px #CCC;
+}
+#message p {
+	line-height:25px;
+	text-align:center;
+}
+#page_table a{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+	border:1px solid #9AAFE5;
+	color:#555 !important;
+	margin-left:4px;
+	margin-right:0px;
+	padding:1px 4px;
+	text-decoration:none;
+}
+#page_table a:hover{
+	color:#FFF !important;
+	background-color:#555;
+}
+#page_table span.current{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+    line-height: 1.5em;
+	background-color:#555;
+	border:1px solid navy;
+	color:#FFF;
+	font-weight:bold;
+	margin-left:4px;
+	padding:1px 4px;
+}
+#page_table td{
+	border:0px !important;
+	padding:0px !important;
+}
+#content table{
+	color:#555;
+	font-size:12px;
+}
+#content form {
+	color:#333;
+	font-size:14px;
+}
+#content>h4 {
+	margin-top:0px;
+	padding-top:1.33em;
+	padding-left:40px;
+	color:#333;
+}
+#content>form {
+	padding-left:40px;
+}
+#content>table {
+	padding-left:20px;
+}
+#content>form>table a.mainlink {
+	color:#00F;
+}
+#content>form>table.detail-table {
+	font-weight:bolder;
+}
+#content>form>table.detail-table p.inputradio {
+	font-family:"Lucida Console", Monaco, monospace;
+	font-weight:normal;
+}
+#content>form>table.detail-table p.inputradio input[type='radio'] {
+	vertical-align:middle;
+	margin-top:0px;
+}
+#content>form>table.detail-table #noticeTitle{
+	float:left;
+	width:200px;
+	height:19px;
+	font-family:"微软雅黑";
+}
+#content>form>table.detail-table #noticeContent{
+	width:300px;
+	max-width:300px;
+	height:150px;
+	max-height:180px;
+}
+#content>form>table tr:first-child {
+	font-weight:bolder;
+}
+#content>form>table tr:last-child td {
+	padding-top:15px;
+}
+#content>form>table input {
+	vertical-align:middle;
+}
+#content>form>table label {
+	font-family:"Lucida Console", Monaco, monospace;
+}
+#oldspan{
+	color:black;
+}
+td.noticetitle a:hover{
+	text-decoration:none;
+}
+span.fontstyle{
+	border:solid 1px #EEE;
+	border-radius:5px;
+	cursor:pointer;
+	margin-left:7px;
+	margin-top:1px;
+	display:block;
+	float:left;
+	width:21px;
+	height:21px;
+}
+span.styleActive{
+	border:solid 1px #666;
+}
+span.fontstyle[name='color']{
+	background:url(../images/font_style.png) no-repeat 0px 0px;
+}
+span.fontstyle[name='bolder']{
+	background:url(../images/font_style.png) no-repeat 0px -23px;
+}
+span.fontstyle[name='italic']{
+	background:url(../images/font_style.png) no-repeat -1px -45px;
+}
+span.fontstyle[name='underline']{
+	background:url(../images/font_style.png) no-repeat 0px -66px;
+}
+#navi-table input[type="text"]{
+	width:100px;
+}
+#navi-table .sequence {
+	width:50px !important;
+}
+#navi-table .node{
+	background-image: url(../images/bg_navi.png);
+	background-repeat: no-repeat;
+	background-position: 28px 1px;
+}
+#navi-table .lastnode{
+	background-image: url(../images/bg_navi.png);
+	background-repeat: no-repeat;
+	background-position: 28px -25px;
+}
+#navi-table .link {
+	width:235px !important;
+}
+#navi-table td, #carou-table td, #table td, #info-table td {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#navi-table td:first-child {
+	padding-right: 0px;
+}
+#navi-table .l2 {
+	margin-left:30px;
+}
+#carou-table label{
+	display:block;
+	position:relative;
+}
+#carou-table tr td:first-child {
+	font-weight:bolder;
+}
+#carou-table td {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#carou-table input[type="text"], #carou-table input[type="number"]{
+	width:221px;
+}
+#carou-table input[type="file"]{
+	position:absolute;
+	cursor:pointer;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	display:block;
+	opacity:0;
+}
+#table td, #info-table td{
+	padding-top:7px;
+	padding-bottom:7px;
+	border-top: 1px solid #F5F5F5;
+}
+.auth-list {
+	font-weight:normal;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.search {
+	padding-left:60px;
+	padding-bottom:10px;
+}
