@@ -14,6 +14,7 @@
 <script src="js/admin.js"></script>
 </head>
 
+
 <body>
 <?php
 	include("include/wechat.php");
