@@ -148,7 +148,8 @@
 	echo "<div id='thread-list'>";
 	$sql="select * from qo_article,qo_class,qo_user where qo_article.UID=qo_user.UID and qo_article.CID=qo_class.CID order by TID desc";
 	$number=mysql_num_rows(mysql_query($sql));
-	$result=mysql_query($sql." limit 0,10");
+	//$result=mysql_query($sql." limit 0,10");
+	$result=mysql_query($sql." limit 0,11");
 	print_thread($result,false);//输出主题列表
 	if($number>10) echo "<a class='readmore' href='article.php?mod=latest&page=2'>浏览更多 »</a>";
 	echo "</div>";

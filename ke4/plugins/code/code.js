@@ -44,9 +44,10 @@ KindEditor.plugin('code', function(K) {
 					name : self.lang('yes'),
 					click : function(e) {
 						var type = K('.ke-code-type', dialog.div).val(),
+							typeStr=$('.ke-code-type option:selected').html(),
 							code = textarea.val(),
 							cls = type === '' ? '' :  ' lang-' + type,
-							html = '<pre class="prettyprint linenums' + cls + '">\n' + K.escape(code) + '</pre> ';
+							html = '<div class="prettyprint"><p class="codetype">' + typeStr + '代码</p><pre class="prettyprint linenums' + cls + '">\n' + K.escape(code) + '</pre></div> ';
 						if (K.trim(code) === '') {
 							alert(lang.pleaseInput);
 							textarea[0].focus();

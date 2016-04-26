@@ -9,11 +9,12 @@
 <script charset="utf-8" src="ke4/plugins/code/prettify.js"></script>
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
 <script src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js"></script>
+<script src="zclip/jquery.zclip.min.js"></script>
 <script src="js/article.js"></script>
 <script src="js/script.js"></script>
 </head>
 
-<body onload="prettyPrint();">
+<body>
 <?php
 	include("include/header.php");
 	

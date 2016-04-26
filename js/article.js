@@ -22,6 +22,19 @@ function reply_reply(obj){
 	$("#reply-content").focus();
 }
 $(function(){
+	//代码复制功能
+	$("div.prettyprint p").append("<span class='copy_code'></span><span class='clip_content' style='display:none'></span>");
+	$("span.clip_content").each(function(index, element) {
+        $(this).text($(this).parent().next().text());
+    });
+	$('.copy_code').zclip({
+		path:"zclip/ZeroClipboard.swf",
+		copy:function(){
+			return $(this).next().text();
+		}
+	});
+	prettyPrint();//语法着色
+	
 	$("#code").blur(function(){
 		var code_num=$("#code").val();
 		$.post("check.php?key=code", {value:code_num}, function(msg){
