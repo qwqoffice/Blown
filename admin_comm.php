@@ -47,7 +47,7 @@
 			$type=$_POST["type"];
 			if(!array_key_exists($type,$types)) exit;
 			//检查内容
-			$content=htmlspecialchars(addslashes($_POST["noticeContent"]));
+			$content=trim(addslashes(str_replace("\r\n","<br />",htmlspecialchars($_POST["noticeContent"]))));
 			if(trim($content)=="") exit;
 			//检查状态
 			$sta=$_POST["status"];

@@ -146,7 +146,7 @@
 				$oldspan=$notice["Title"];
 				$oldtitle=strip_tags($oldspan);
 				$oldtype=$notice["NoticeType"];
-				$oldcontent=$notice["Content"];
+				$oldcontent=str_replace("<br />","\r\n",$notice["Content"]);
 				$oldsta=$notice["Status"];
 				$globaltitle="公告管理-编辑公告";
 				echo "<h4>{$globaltitle}</h4>";
