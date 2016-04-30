@@ -59,6 +59,7 @@ function getObjectURL(file) {
 //更新图片
 function updateIMG(obj){
 	$(obj).prev().attr("src", getObjectURL(obj.files[0]));
+	$(obj).prev().prev().find("img").attr("src", getObjectURL(obj.files[0]));
 }
 
 //获取URL参数
@@ -246,6 +247,23 @@ $(document).ready(function(e) {
 				colorpicker = null;
 			}
 		});
+	});
+	
+	//鼠标经过显示板块ICON
+	xOffset = 15;
+	yOffset = -45;
+	$("input.icon-file").hover(function(e){
+		var img=$(this).prev().attr("src");
+		if(img==null) return;
+		$("body").append("<div id='img-preview'><img src='" + img + "' width='50' height='50' style='border-radius:50%;border:1px solid #c7c7c7' /></div>");
+		$("#img-preview")
+		.css("top",(e.pageY + yOffset) + "px")
+		.css("left",(e.pageX + xOffset) + "px")
+		.css({"display":"none","position":"absolute"})
+		.fadeIn("fast");
+	},
+	function(e){
+		$("#img-preview").remove();
 	});
 	
 //KE初始化

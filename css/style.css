@@ -6,6 +6,17 @@ body {
 	margin: 0px;
 	padding: 0px;
 }
+::-webkit-scrollbar-track{
+	box-shadow:inset 0 0 6px rgba(0,0,0,0.3);	
+}
+::-webkit-scrollbar{
+	width:7px;
+	height:7px;
+}
+::-webkit-scrollbar-thumb{
+	border-radius:1em;
+	background-color:rgba(50,50,50,0.3);
+}
 .bolder{
 	font-weight:bolder;
 }
@@ -29,7 +40,7 @@ a:hover {
 li a:hover{
 	text-decoration:none;
 }
-.avatar-big, .avatar-middle, .avatar-small{
+.avatar-big, .avatar-middle, .avatar-small, .forum-icon{
 	border: 1px solid #E4E4E4;
 	vertical-align:middle;
 	border-radius:50%;
@@ -419,6 +430,7 @@ em.menu-msgcount{
 	height:50px;
 	margin-right:15px;
 	line-height:70px;
+	font-size:14px;
 }
 #page_table {
 	height:60px;
@@ -527,6 +539,10 @@ em.menu-msgcount{
 	padding-right:10px;
 	padding-top:8px;
 	padding-bottom:8px;
+}
+.no-result{
+	padding-left:5px;
+	font-size:14px;
 }
 #thread-list .Product {
 	color:#E53333 !important;

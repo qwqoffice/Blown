@@ -1,6 +1,7 @@
 // JavaScript Document
 $(document).ready(function(e) {
 //头像上传插件
+if($("div#avatarEditor").length>0){
 swfobject.addDomLoadEvent(function () {
 	var swf = new fullAvatarEditor("ae/fullAvatarEditor.swf", "ae/expressInstall.swf", "avatarEditor", {
 		id : 'swf',
@@ -22,6 +23,7 @@ swfobject.addDomLoadEvent(function () {
 		}
 	});
 });
+}
 
 	//用户组列表改变事件
 	$("select.grplist").change(function(e) {

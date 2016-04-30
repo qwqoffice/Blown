@@ -93,7 +93,7 @@
 				if($parent!=0) chkExists("qo_class", "CID", $parent);//检查CID
 				$link=htmlspecialchars(addslashes($_POST["newlink"][$key]));
 				$seq=$_POST["newseq"][$key]==""?"0":(int)$_POST["newseq"][$key];
-				$result=mysql_query("insert into qo_class values(null, '{$newname}', '{$link}', {$parent}, {$seq})");
+				$result=mysql_query("insert into qo_class values(null, '{$newname}', '{$link}', {$parent}, {$seq}, null)");
 				if(!$result){
 					header("location: admin.php?mod=message&msg=navi0");
 					exit;
@@ -109,8 +109,29 @@
 				chkExists("qo_class", "CID", $cid);//检查CID
 				$link=htmlspecialchars(addslashes($_POST["linknew"][$key]));
 				$seq=$_POST["seqnew"][$key]==""?"0":(int)$_POST["seqnew"][$key];
-				$result=mysql_query("update qo_class set ClassName='{$namenew}', Link='{$link}', Sequence={$seq} where CID=$cid");
-				if(!$result){
+				$file=isset($_FILES["filenew"]["tmp_name"][$key])? $_FILES["filenew"]["tmp_name"][$key] : "";
+				$file_error=$file!="" ? $_FILES["filenew"]["error"][$key] : 4;
+				$dir="./images-icon";
+				if($file!=""){
+					$file_count=1;
+					while(file_exists("{$dir}/".($filename=date("Ymd")."-{$file_count}.".pathinfo($_FILES["filenew"]["name"][$key], PATHINFO_EXTENSION)))){
+						$file_count++;
+					}
+				}
+				if(!file_exists($dir)) mkdir($dir);
+				
+				if($file_error==0){
+					$result=mysql_query("update qo_class set ClassName='{$namenew}', Link='{$link}', Sequence={$seq}, ICON='{$filename}' where CID=$cid");
+				}else if($file_error==4){
+					$result=mysql_query("update qo_class set ClassName='{$namenew}', Link='{$link}', Sequence={$seq} where CID=$cid");
+				}else{
+					header("location: admin.php?mod=message&msg=navi0");
+					exit;
+				}
+				
+				if($result){
+					if($file_error==0) move_uploaded_file($file, $dir."/".$filename);
+				}else{
 					header("location: admin.php?mod=message&msg=navi0");
 					exit;
 				}

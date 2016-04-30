@@ -312,9 +312,15 @@
 			}else{
 				$mod="";
 			}
+			$icon=$arr["ICON"]!=""?"images-icon/{$arr['ICON']}":"images/default_icon.png";
+			
 			if($mod=="main"){
 				echo "<li>";
 				$thread_count=mysql_num_rows(mysql_query("select * from qo_article where CID={$arr['CID']}"));
+				echo "<div style='float:left;margin-right:10px;'>";
+				echo "<a href='article.php?mod=class&cid={$arr['CID']}' style='margin:0px'><img class='forum-icon' src='{$icon}' width='50' height='50' /></a>";
+				echo "</div>";
+				
 				echo "<div><a href='article.php?mod=class&cid={$arr['CID']}' class='title'>{$arr['ClassName']}</a></div>";
 				echo "<div><span>帖子：{$thread_count}</span><div>";
 				echo "</li>";
@@ -323,7 +329,7 @@
 				$reply_count=mysql_num_rows(mysql_query("select * from qo_reply where TID={$arr['TID']} and Status='通过'"));
 				echo "<li>";
 				echo "<div style='float:left;margin-right:10px;'>";
-				echo "<a href='index.php?{$arr['UID']}' style='margin:0px'><img class='avatar-middle' src='avatar.php?uid={$arr['UID']}&size=middle' width='50' height='50' /></a>";
+				echo "<a href='article.php?mod=class&cid={$arr['CID']}' style='margin:0px'><img class='forum-icon' src='{$icon}' width='50' height='50' /></a>";
 				echo "</div>";
 				
 				echo "<div><a href='article.php?mod=class&cid={$arr['CID']}' class='title {$arr['ArticleType']}'>[{$arr['ClassName']}]</a>";

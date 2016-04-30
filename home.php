@@ -417,7 +417,7 @@
 					$number=count($talklist);
 					print_page($number,$PageSize,$page,$PageCount,false);
 				}else{
-					echo "暂无消息";
+					echo "<div class='no-result'>暂无消息</div>";
 				}
 			}
 		}
@@ -461,7 +461,7 @@
 				echo "</ul></div>";
 				print_page($number,$PageSize,$page,$PageCount,false);
 			}else{
-				echo "暂无消息";
+				echo "<div class='no-result'>暂无消息</div>";
 			}
 		}
 		//公告
@@ -523,7 +523,7 @@
 				echo "</ul>";
 				if(!isset($_GET["date"])) print_page($num,$PageSize,$page,$PageCount,false);
 			}else{
-				echo "暂无公告";
+				echo "<div class='no-result'>暂无公告</div>";
 			}
 			echo "</div>";
 		}

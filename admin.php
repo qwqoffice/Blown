@@ -205,8 +205,8 @@
 	else if($mod=="navi"){
 		$globaltitle="导航管理";
 		echo "<h4>{$globaltitle}</h4>";
-		echo "<form action='admin_comm.php' autocomplete='off' method='post'><table cellspacing='10' id='navi-table'>";
-		echo "<tr><td width='50'></td><td>CID</td><td>显示顺序</td><td>名称</td><td>链接</td></tr>";
+		echo "<form action='admin_comm.php' autocomplete='off' method='post' enctype='multipart/form-data'><table cellspacing='10' id='navi-table'>";
+		echo "<tr><td width='50'></td><td>CID</td><td>显示顺序</td><td>名称</td><td>链接</td><td>ICON</td></tr>";
 		//一级导航
 		$result=mysql_query("select * from qo_class where Parent=0 order by Sequence");
 		while($l1=mysql_fetch_array($result)){
@@ -223,18 +223,28 @@
 				$num=mysql_num_rows($result1);
 				for($i=1; $i<=$num; $i++){
 					$l2=mysql_fetch_array($result1);
+					$icon=$l2["ICON"]!=""?"images-icon/{$l2['ICON']}":"images/default_icon.png";
+					
 					echo "<tr><td><input type='checkbox' name='delete[]' value='{$l2['CID']}' /></td>";
 					echo "<td>{$l2['CID']}</td>";
 					echo "<td><input class='sequence' type='number' name='seqnew[{$l2['CID']}]' value='{$l2['Sequence']}' /></td>";
 					echo "<td class='".($i==$num?"lastnode":"node")."'><input class='l2' type='text' name='namenew[{$l2['CID']}]' value='{$l2['ClassName']}' /></td>";
-					echo "<td><input class='link' type='text' name='linknew[{$l2['CID']}]' value='{$l2['Link']}' placeholder='默认article.php?mod=class&cid={CID}' /></td></tr>";
+					echo "<td><input class='link' type='text' name='linknew[{$l2['CID']}]' value='{$l2['Link']}' placeholder='默认article.php?mod=class&cid={CID}' /></td>";
+					
+					echo "<td align='center'><label for='icon{$l2['CID']}' class='dot-label'>";
+					echo "<span class='small-dot'><img src='{$icon}' width='20' height='20' /></span>";
+					echo "<img src='{$icon}' width='20' height='20' style='display:none' />";
+					echo "<input class='icon-file' type='file' id='icon{$l2['CID']}' name='filenew[{$l2['CID']}]' title='' name='files[]' onchange='updateIMG(this)' />";
+					echo "</label></td>";
+					
+					echo "</tr>";
 				}
 			}
 		}
 		$text="删除操作不可恢复，您确定要删除选中的版块及清除其中主题吗？";
-		echo "<tr><td></td><td></td><td colspan='3'><a href='javascript:void(0);' onclick='addL1(this)' class='mainlink'>添加一级导航</a></td></tr>";
+		echo "<tr><td></td><td></td><td colspan='4'><a href='javascript:void(0);' onclick='addL1(this)' class='mainlink'>添加一级导航</a></td></tr>";
 		echo "<tr><td><input id='checkbox' type='checkbox' onclick='checkAll(this)' /><label for='checkbox'>删?</label></td>";
-		echo "<td colspan='3'><input type='submit' name='{$mod}' value='提交' onclick='".'return confirmMsg("'.$text.'");'."' /></td></tr>";
+		echo "<td colspan='5'><input type='submit' name='{$mod}' value='提交' onclick='".'return confirmMsg("'.$text.'");'."' /></td></tr>";
 		echo "</table></form>";
 	}
 	//图片轮播管理
