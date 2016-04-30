@@ -331,6 +331,8 @@ span.fontstyle[name='underline']{
 	cursor:pointer;
 	display:block;
 	position:relative;
+}
+#navi-table label.dot-label{
 	border-radius:50%;
 	border: 1px solid #E4E4E4;
 }
