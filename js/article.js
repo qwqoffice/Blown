@@ -50,6 +50,16 @@ $(function(){
 		});
 	});
 	
+	//附件下载次数显示
+	$("a.ke-insertfile").each(function(index, element) {
+        if($(element).attr("href").indexOf("download.php")>-1){
+			var aid=$(element).attr("href").substr(($(element).attr("href").indexOf("aid="))+4);
+			$.post("json.php",{"m":"downcount","aid":aid},function(data){
+				$(element).append("&nbsp;&nbsp;&nbsp;<span style='color:#888;'>(下载: " + data.count + ")</span>");
+			},"json");
+		}
+    });
+	
 	$("#reply #reply-content").blur(function(){
 		if($(this).val()==""){
 			$(this).css("border-color","#F00");

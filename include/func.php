@@ -36,6 +36,12 @@
 		}
 	}
 	
+	//获取附件下载次数
+	function getDownloadCount($aid){
+		$a=mysql_fetch_array(mysql_query("select * from qo_attach where AID={$aid}"));
+		return $a["DownCount"];
+	}
+	
 	//获取UID
 	function getUID($username){
 		$u=mysql_fetch_array(mysql_query("select UID from qo_user where Username='{$username}'"));
